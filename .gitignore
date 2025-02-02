@@ -1,0 +1,116 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Django
+*.log
+*.pot
+*.pyc
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+media/
+
+# If you're using PostgreSQL
+*.psql
+*.pgsql
+*.sql
+
+# Migrations (uncomment if you don't want to track migrations)
+# */migrations/*
+# !*/migrations/__init__.py
+
+# Static files
+staticfiles/
+static/admin/
+static/rest_framework/
+
+# Media files
+media/
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.env
+.venv
+env.bak/
+venv.bak/
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Coverage/testing
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Compiled files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Temporary files
+*.bak
+*.swp
+*.swo
+*~
+
+# Django specific
+*.log
+*.pot
+*.pyc
+db.sqlite3
+media/
+
+# IDE specific
+.idea/
+.vscode/
+
+# Compiled Python files
+*.pyc
+*.pyo
+*.pyd
+
+# Cache directories
+**/__pycache__/
+.pytest_cache/
+
+# Local database
+*.sqlite3
+
+# Migrations
+# migrations/ # Uncomment if you don't want to track migrations 
