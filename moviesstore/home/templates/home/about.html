@@ -1,37 +1,43 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
-<div class="p-3">
-  <div class="container">
-    <div class="row mt-3">
-      <div class="col-md-6 mx-auto mb-3">
-        <h2>About</h2>
-        <hr />
-        <p>
-           At Movies Store, we offer a vast digital library
-           that spans across genres, ensuring there's
-           something for every movie lover. Browse our
-           extensive collection of films, including the
-           latest releases, timeless classics, and hidden
-           gems. With just a few clicks, you can rent or
-           purchase your favorite titles and instantly
-           stream them in high-definition quality.
-        </p>
-        <p>
-          Discover the convenience of our digital platform,
-          where you have the flexibility to watch movies
-          on your preferred device, whether it's a smart
-          TV, tablet, or smartphone. With our intuitive
-          search and recommendation features, finding your
-          next movie night pick has never been easier.
-        </p>
-      </div>
-      <div class="col-md-6 mx-auto mb-3 text-center">
-        <img src="{% static 'img/about.jpg' %}"
-             class="max-width-100"
-             alt="about" />
-      </div>
+<div class="container py-5">
+    <div class="row align-items-center">
+        <div class="col-md-6 mb-4 mb-md-0">
+            <h2 class="mb-4">About Us</h2>
+            <div class="text-secondary">
+                <p class="lead mb-4">
+                    At Movies Store, we offer a vast digital library
+                    that spans across genres, ensuring there's
+                    something for every movie lover.
+                </p>
+                <p class="mb-4">
+                    Browse our extensive collection of films, including the
+                    latest releases, timeless classics, and hidden
+                    gems. With just a few clicks, you can rent or
+                    purchase your favorite titles and instantly
+                    stream them in high-definition quality.
+                </p>
+                <p>
+                    Discover the convenience of our digital platform,
+                    where you have the flexibility to watch movies
+                    on your preferred device, whether it's a smart
+                    TV, tablet, or smartphone. With our intuitive
+                    search and recommendation features, finding your
+                    next movie night pick has never been easier.
+                </p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card bg-black border-0">
+                <div class="card-body p-3">
+                    <img src="{% static 'img/about.jpg' %}"
+                         class="rounded w-100"
+                         alt="about"
+                         style="object-fit: cover;" />
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 {% endblock content %}

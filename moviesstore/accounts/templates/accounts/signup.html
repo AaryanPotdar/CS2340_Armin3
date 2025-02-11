@@ -1,21 +1,27 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="p-3 mt-4">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card shadow p-3 mb-4 rounded">
-                    <div class="card-body">
-                        <h2>Sign Up</h2>
-                        <hr />
-                        <form method="POST">
-                            {% csrf_token %}
-                            {{ template_data.form.as_p }}
-                            <button type="submit"
-                                class="btn bg-dark text-white">Sign Up
-                            </button>
-                        </form>
-                    </div>
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card bg-black p-4 shadow-sm">
+                <div class="card-body px-4">
+                    <h2 class="text-center h3 mb-4 fw-bold">Create Account</h2>
+                    <form method="POST">
+                        {% csrf_token %}
+                        {% for field in template_data.form %}
+                        <div class="mb-4">
+                            <label class="form-label small text-secondary">{{ field.label }}</label>
+                            {{ field.errors }}
+                            {{ field }}
+                            {% if field.help_text %}
+                            <small class="form-text text-muted">{{ field.help_text }}</small>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
