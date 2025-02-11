@@ -1,51 +1,44 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="p-3">
-  <div class="container">
-    <div class="row mt-3">
-      <div class="col mx-auto mb-3">
-        <h2>My Orders</h2>
-        <hr />
-        {% for order in template_data.orders %}
-        <div class="card mb-4">
-          <div class="card-header">
-            Order #{{ order.id }}
-          </div>
-          <div class="card-body">
-            <b>Date:</b> {{ order.date }}<br />
-            <b>Total:</b> ${{ order.total }}<br />
-            <table class="table table-bordered
-              table-striped text-center mt-3">
-              <thead>
-                <tr>
-                  <th scope="col">Item ID</th>
-                  <th scope="col">Movie</th>
-                  <th scope="col">Price</th>
-                  <th scope="col">Quantity</th>
-                </tr>
-              </thead>
-              <tbody>
-                {% for item in order.item_set.all %}
-                <tr>
-                  <td>{{ item.movie.id }}</td>
-                  <td>
-                    <a class="link-dark"
-                      href="{% url 'movies.show'
-                      id=item.movie.id %}">
-                      {{ item.movie.name }}
-                    </a>
-                  </td>
-                  <td>${{ item.movie.price }}</td>
-                  <td>{{ item.quantity }}</td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-          </div>
+<div class="container py-5">
+    <h2 class="display-6 fw-bold mb-4">My Orders</h2>
+    {% for order in template_data.orders %}
+    <div class="card bg-black mb-4 shadow-sm">
+        <div class="card-header bg-black border-bottom border-secondary py-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <span class="text-secondary">Order #{{ order.id }}</span>
+                <span class="badge bg-primary px-3 py-2">${{ order.total }}</span>
+            </div>
         </div>
-        {% endfor %}
-      </div>
+        <div class="card-body p-4">
+            <p class="text-secondary small mb-4">Ordered on {{ order.date|date:"F j, Y" }}</p>
+            <div class="table-responsive">
+                <table class="table table-dark table-hover align-middle mb-0">
+                    <thead class="text-secondary small">
+                        <tr>
+                            <th>MOVIE</th>
+                            <th class="text-end">PRICE</th>
+                            <th class="text-end" width="100">QTY</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in order.item_set.all %}
+                        <tr>
+                            <td>
+                                <a href="{% url 'movies.show' id=item.movie.id %}" 
+                                   class="text-decoration-none text-white">
+                                    {{ item.movie.name }}
+                                </a>
+                            </td>
+                            <td class="text-end">${{ item.movie.price }}</td>
+                            <td class="text-end">{{ item.quantity }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-  </div>
+    {% endfor %}
 </div>
 {% endblock content %}

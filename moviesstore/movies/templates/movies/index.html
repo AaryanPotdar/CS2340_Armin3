@@ -1,48 +1,41 @@
 {% extends 'base.html' %}
 {% block content %}
-{% load static %}
-<div class="p-3">
-  <div class="container">
-    <div class="row mt-3">
-      <div class="col mx-auto mb-3">
-        <h2>List of Movies</h2>
-        <hr />
-        <p class="card-text">
-          <form method="GET">
-            <div class="row">
-              <div class="col-auto">
-                <div class="input-group col-auto">
-                  <div class="input-group-text">
-                    Search</div>
-                  <input type="text" class="form-control"
-                    name="search">
+<div class="container py-5">
+    <div class="row mb-5">
+        <div class="col-lg-6">
+            <h1 class="display-6 fw-bold mb-4">Movies Collection</h1>
+            <form method="GET" class="d-flex gap-2">
+                <div class="input-group">
+                    <input type="text" class="form-control" name="search" placeholder="Search movies...">
+                    <button class="btn btn-primary px-4" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
                 </div>
-              </div>
-              <div class="col-auto">
-                <button class="btn bg-dark text-white"
-                  type="submit">Search</button>
-              </div>
-            </div>
-          </form>
-        </p>
-      </div>
-    </div>
-    <div class="row">
-      {% for movie in template_data.movies %}
-      <div class="col-md-4 col-lg-3 mb-2">
-        <div class="p-2 card align-items-center pt-4">
-          <img src="{{ movie.image.url }}"
-            class="card-img-top rounded img-card-200">
-          <div class="card-body text-center">
-            <a href="{% url 'movies.show' id=movie.id %}"
-              class="btn bg-dark text-white">
-              {{ movie.name }}
-            </a>
-          </div>
+            </form>
         </div>
-      </div>
-      {% endfor %}
     </div>
-  </div>
+
+    <div class="row g-4">
+        {% for movie in template_data.movies %}
+        <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="movie-card h-100">
+                <img src="{{ movie.image.url }}" 
+                     class="w-100 rounded-4" 
+                     style="aspect-ratio: 2/3; object-fit: cover;"
+                     alt="{{ movie.name }}">
+                <div class="movie-card-overlay rounded-4">
+                    <div class="d-flex flex-column justify-content-end h-100 p-3">
+                        <h5 class="movie-title mb-2">{{ movie.name }}</h5>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="price">${{ movie.price }}</span>
+                            <a href="{% url 'movies.show' id=movie.id %}" 
+                               class="btn btn-primary btn-sm px-3">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 </div>
 {% endblock content %}
