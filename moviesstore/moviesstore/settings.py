@@ -88,7 +88,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'moviesstore',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': None,
         'HOST': 'localhost',
         'PORT': '3306',
     }
